@@ -18,15 +18,17 @@ package Stages
 	{
 		[Embed(source = "mapCSV_Level_Map.csv", mimeType = "application/octet-stream")] private var Level:Class;
 		[Embed(source = "BHBG.png")] private var StaBG:Class;
+		[Embed(source = "effect.png")] private var Effect:Class;
 		[Embed(source = "CyTrSS.png")] private var Tiles:Class;
 		[Embed(source = "../Music/testmusic.mp3")] private var Music:Class;
 		
 		private var background:FlxSprite = new FlxSprite(0, 0, StaBG);
+		private var effect:FlxSprite = new FlxSprite(0, 0, Effect);
 		private var stageSet:FlxTilemapExt = new FlxTilemapExt();
 		private var score:int = 0;
 		private var scoreLabel:FlxText = new FlxText(0, 10, 400, "", false);
 		
-		private var player:Jet = new Jet(10, 0);
+		private var player:Jet = new Jet(110, 670);
 		public function BlankHill() 
 		{
 			
@@ -44,6 +46,10 @@ package Stages
 			add(player);
 			add(player.exhaust);
 			add(player.boostAura);
+			effect.blend = "add";
+			effect.scrollFactor.x = 0;
+			effect.scrollFactor.y = 0;
+			add(effect);
 			
 			scoreLabel.size = 20;
 			scoreLabel.scrollFactor.x = 0;
