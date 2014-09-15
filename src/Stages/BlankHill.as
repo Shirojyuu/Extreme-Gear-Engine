@@ -19,7 +19,7 @@ package Stages
 		[Embed(source = "mapCSV_Level_Map.csv", mimeType = "application/octet-stream")] private var Level:Class;
 		[Embed(source = "BHBG.png")] private var StaBG:Class;
 		[Embed(source = "effect.png")] private var Effect:Class;
-		[Embed(source = "CyTrSS.png")] private var Tiles:Class;
+		[Embed(source = "CS2.png")] private var Tiles:Class;
 		[Embed(source = "../Music/testmusic.mp3")] private var Music:Class;
 		
 		private var background:FlxSprite = new FlxSprite(0, 0, StaBG);
@@ -43,6 +43,11 @@ package Stages
 			add(background);
 			add(stageSet);
 			stageSet.loadMap(new Level, Tiles, 32, 32);
+			
+			var tempFL:Array = new Array(7, 9);
+			var tempFR:Array = new Array(8,10);
+			stageSet.setSlopes(tempFL, tempFR);
+			
 			add(player);
 			add(player.exhaust);
 			add(player.boostAura);
@@ -85,7 +90,7 @@ package Stages
 				add(new TrickText(200, 215, 200, "Method", false));
 			}
 			
-			if (FlxG.keys.justPressed("C"))
+			if (FlxG.keys.X && FlxG.keys.justPressed("C"))
 			{
 				add(new TrickText(185, 190, 200, "Jessy", false));
 			}

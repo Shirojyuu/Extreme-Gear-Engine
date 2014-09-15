@@ -26,6 +26,7 @@ package Characters
 		public var prePoints:int = 0;
 		public var tricking:Boolean = false;
 		public var trickNumber:Boolean = false;
+		private var jumpHoldTime:uint = 0;
 		
 		public var boostAura:FlxSprite;
 		private var boostTimer:Timer = new Timer(1000, 3);
@@ -135,10 +136,19 @@ package Characters
 			}
 			
 			//Jumping
-			if (FlxG.keys.justPressed("Z")&& isTouching(FLOOR))
+			if (FlxG.keys.Z && velocity.x > 0)
+			{
+				acceleration.x = 3;
+				velocity.x -= 2;
+				jumpHoldTime += 1;
+			}
+			
+			if (FlxG.keys.justReleased("Z")&& isTouching(FLOOR))
 			{
 				randomJump();
-				velocity.y -= 150;
+				velocity.y -= 100 + jumpHoldTime;
+				jumpHoldTime = 0;
+				resetPhysics();
 			}
 			
 			//Boosting
