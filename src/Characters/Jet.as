@@ -86,7 +86,7 @@ package Characters
 				
 			exhaust.y = y + 42;
 			
-			if (touching == FLOOR)
+			if (touching == FLOOR && (touching != LEFTSLOPE || touching != RIGHTSLOPE))
 			{
 				tricking = false;
 				angle = 0;
@@ -159,6 +159,16 @@ package Characters
 				boostAura.visible = true;
 				FlxG.shake(0.02, 0.5, null, true, FlxCamera.SHAKE_HORIZONTAL_ONLY);
 				velocity.x = 400;
+			}
+			
+			if (touching == LEFTSLOPE)
+			{
+				angle = -45;
+			}
+			
+			if (touching == RIGHTSLOPE)
+			{
+				angle = 45;
 			}
 		
 		}

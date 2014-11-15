@@ -151,14 +151,17 @@ package org.flixel
 		protected function onCollideFloorSlope(slope:FlxTile, obj:FlxObject):void
 		{
 			//set the object's touching flag
-			obj.touching = FLOOR;
+			//obj.touching = FLOOR;
 			
 			//adjust the object's velocity
 			obj.velocity.y = 0;
 			
 			//reposition the object
 			obj.y = _slopePoint.y - obj.height;
-			if (obj.y < slope.y - obj.height) { obj.y = slope.y - obj.height };
+			if (obj.y < slope.y - obj.height) 
+			{ 
+				obj.y = slope.y - obj.height; 
+			}
 		}
 		
 		/**
@@ -205,6 +208,7 @@ package org.flixel
 				&& _objPoint.y <= slope.y + _tileHeight)
 			{
 				//call the collide function for the floor slope
+				obj.touching = LEFTSLOPE;
 				onCollideFloorSlope(slope, obj);
 			}
 		}

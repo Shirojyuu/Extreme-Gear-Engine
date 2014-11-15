@@ -6,7 +6,7 @@ package Stages
 	 */
 	public class MusicRegistry 
 	{
-		
+		[Embed(source = "../Music/unity.mp3")] public static var Music:Class;
 		public function MusicRegistry() 
 		{
 			

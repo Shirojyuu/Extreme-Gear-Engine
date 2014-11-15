@@ -31,7 +31,14 @@ package org.flixel
 		 * Generic value for "down" Used by <code>facing</code>, <code>allowCollisions</code>, and <code>touching</code>.
 		 */
 		static public const DOWN:uint	= 0x1000;
-		
+		/**
+		 * Special-case constant meaning no collisions, used mainly by <code>allowCollisions</code> and <code>touching</code>.
+		 */
+		static public const LEFTSLOPE:uint	= 0x00A0;
+		/**
+		 * Special-case constant meaning no collisions, used mainly by <code>allowCollisions</code> and <code>touching</code>.
+		 */
+		static public const RIGHTSLOPE:uint = 0x00B0;
 		/**
 		 * Special-case constant meaning no collisions, used mainly by <code>allowCollisions</code> and <code>touching</code>.
 		 */

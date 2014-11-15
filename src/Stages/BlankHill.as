@@ -20,7 +20,7 @@ package Stages
 		[Embed(source = "BHBG.png")] private var StaBG:Class;
 		[Embed(source = "effect.png")] private var Effect:Class;
 		[Embed(source = "CS2.png")] private var Tiles:Class;
-		[Embed(source = "../Music/testmusic.mp3")] private var Music:Class;
+		
 		
 		private var background:FlxSprite = new FlxSprite(0, 0, StaBG);
 		private var effect:FlxSprite = new FlxSprite(0, 0, Effect);
@@ -36,7 +36,7 @@ package Stages
 		
 		override public function create():void
 		{
-			FlxG.playMusic(Music);
+			FlxG.playMusic(MusicRegistry.Music);
 			FlxG.resetCameras(new FlxCamera(0, 0, 320, 240));
 			background.scrollFactor.x = 0.1;
 			background.scrollFactor.y = 0.1;
